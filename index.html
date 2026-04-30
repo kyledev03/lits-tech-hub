@@ -178,6 +178,16 @@ footer{background-color:#051630;color:#a0aec0;padding:80px 5% 30px 5%;transition
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 .robot-container{transform:scale(1.4);transform-origin:center;margin-left:2rem;}
 @media (max-width:768px){.robot-container{transform:scale(1.1);margin-left:0;}}
+    /* --- Mobile Navigation Styles --- */
+.mobile-toggle{display:none;background:transparent;border:none;color:#64ffda;font-size:1.8rem;cursor:pointer;z-index:1001;}
+@media (max-width:768px){
+    .mobile-toggle{display:block;}
+    .nav-btn{display:none;}
+    .navbar{display:none;}
+    .navbar.active{display:flex;position:absolute;top:80px;left:5%;width:90%;flex-direction:column;background:rgba(10,25,47,.95);backdrop-filter:blur(15px);border:1px solid rgba(100,255,218,.2);border-radius:15px;padding:20px 0;box-shadow:0 10px 30px rgba(0,0,0,.8);}
+    .navbar.active .nav-links{display:flex !important;flex-direction:column;width:100%;gap:20px;text-align:center;}
+    .navbar.active .nav-links a{font-size:1.1rem;}
+}
     
     </style>
     </head>
@@ -214,6 +224,11 @@ footer{background-color:#051630;color:#a0aec0;padding:80px 5% 30px 5%;transition
         <img src="lits.jpg" alt="LITS Logo">
         <div class="logo">LITS Tech Hub</div>
     </a>
+    
+    <button class="mobile-toggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
@@ -333,6 +348,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const animatedElements = document.querySelectorAll('.scroll-animate');
     animatedElements.forEach(el => { observer.observe(el); });
 });
+    // Mobile Menu Toggle Logic
+const mobileToggle = document.querySelector('.mobile-toggle');
+const navbar = document.querySelector('.navbar');
+const toggleIcon = document.querySelector('.mobile-toggle i');
+
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+        // Toggle the dropdown menu
+        navbar.classList.toggle('active');
+        
+        // Change icon between 'bars' and 'x'
+        if (navbar.classList.contains('active')) {
+            toggleIcon.classList.remove('fa-bars');
+            toggleIcon.classList.add('fa-xmark');
+        } else {
+            toggleIcon.classList.remove('fa-xmark');
+            toggleIcon.classList.add('fa-bars');
+        }
+    });
+}
 </script>
 </body>
 </html>
