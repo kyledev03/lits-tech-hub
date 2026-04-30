@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LITS Tech Hub | Student Highlights</title>
+    <link rel="icon" type="image/png" href="titlelogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         * {margin: 0;padding: 0;box-sizing: border-box;}
+        body {background-color: #010409;background-image: radial-gradient(ellipse at top, #0A192F 0%, #010409 70%),linear-gradient(135deg, #010409 0%, #040D21 100%);color: #ffffff;
+        font-family: 'Inter', sans-serif;line-height: 1.6;overflow-x: hidden;position: relative;}
+        a{text-decoration:none;color:inherit;}
+        .page-hero{min-height:42vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10rem 5% 3rem;position:relative;z-index:10;}
+        .page-hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:800;color:#fff;line-height:1.15;}
+        .page-hero p{color:#8892b0;font-size:1.05rem;max-width:560px;margin:1rem auto 0;}
+        .teal{color:#64ffda;} .gold{color:#FFD700;}
+        .content-section{padding:3.5rem 5%;position:relative;z-index:10;max-width:1280px;margin:0 auto;}
+        .sec-label{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#64ffda;margin-bottom:.6rem;}
+        .sec-heading{font-size:2.1rem;font-weight:800;color:#fff;margin-bottom:.5rem;line-height:1.2;}
+        .sec-sub{font-size:.93rem;color:#8892b0;margin-bottom:2.2rem;}
+        .sec-divider{border:none;border-top:1px solid rgba(255,255,255,.07);margin:0 5%;}
+        .out-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.6rem;}
+        .out-card{background:linear-gradient(145deg,rgba(16,24,43,.9),rgba(10,25,47,.65));border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;text-align:center;position:relative;transition:transform .35s,border-color .35s,box-shadow .35s;}
+        .out-card:hover{transform:translateY(-9px) scale(1.02);border-color:rgba(255,215,0,.32);box-shadow:0 20px 40px rgba(0,0,0,.4),0 0 22px rgba(255,215,0,.07);}
+        .out-card.gold-card{border-color:rgba(255,215,0,.28);background:linear-gradient(145deg,rgba(30,22,5,.9),rgba(16,12,2,.7));}
+        .ribbon{position:absolute;top:14px;right:-8px;background:#FFD700;color:#000;font-size:.62rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 16px 4px 10px;border-radius:2px 0 0 2px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,8% 50%);z-index:2;}
+        .o-photo-wrap{width:100%;height:220px;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(100,255,218,.08),rgba(0,102,255,.12));flex-shrink:0;}
+        .o-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .45s ease;}
+        .out-card:hover .o-photo-wrap img{transform:scale(1.06);}
+        .o-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;color:rgba(100,255,218,.25);}
+        .o-photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(10,15,28,.65));pointer-events:none;}
+        .o-info{padding:1.2rem 1.4rem 1.6rem;}
+        .o-name{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.18rem;}
+        .out-card.gold-card .o-name{font-size:1.1rem;}
+        .o-pos{font-size:.77rem;font-weight:700;color:#64ffda;letter-spacing:.4px;}
+        .out-card.gold-card .o-pos{color:#FFD700;font-size:.83rem;}
+        .o-year{font-size:.74rem;color:#8892b0;margin-top:.2rem;}
+        .o-award{display:inline-block;margin-top:.7rem;font-size:.73rem;font-weight:700;padding:3px 11px;border-radius:20px;background:rgba(255,215,0,.1);color:#FFD700;}
+        .o-award.teal-aw{background:rgba(100,255,218,.1);color:#64ffda;}
+        .o-quote{font-size:.82rem;color:#8892b0;font-style:italic;line-height:1.5;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06);}
+        .comp-list{display:flex;flex-direction:column;gap:.9rem;}
+        .comp-item{background:linear-gradient(145deg,rgba(16,24,43,.85),rgba(10,25,47,.55));border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:1.3rem 1.8rem;display:flex;align-items:center;gap:1.4rem;transition:transform .3s,border-color .3s;}
+        .comp-item:hover{transform:translateX(6px);border-color:rgba(100,255,218,.18);}
+        .comp-medal{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+        .medal-gold{background:rgba(255,215,0,.12);color:#FFD700;}
+        .medal-silver{background:rgba(192,192,192,.12);color:#C0C0C0;}
+        .medal-bronze{background:rgba(205,127,50,.14);color:#CD7F32;}
+        .comp-details{flex-grow:1;}
+        .comp-details h4{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:.18rem;}
+        .comp-details p{font-size:.83rem;color:#8892b0;}
+        .comp-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:4px;white-space:nowrap;}
+        .comp-tag.gold{background:rgba(255,215,0,.12);color:#FFD700;}
+        .comp-tag.silver{background:rgba(192,192,192,.12);color:#C0C0C0;}
+        .comp-tag.bronze{background:rgba(205,127,50,.14);color:#CD7F32;}
+        .recog-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2.5rem;}
+        .recog-tab{padding:8px 22px;border-radius:50px;border:1px solid rgba(255,255,255,.12);background:transparent;color:#8892b0;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .25s ease;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:7px;}
+        .recog-tab:hover{background:rgba(100,255,218,.07);color:#64ffda;border-color:rgba(100,255,218,.3);}
+        .recog-tab.active{background:rgba(100,255,218,.12);color:#64ffda;border-color:#64ffda;box-shadow:0 0 12px rgba(100,255,218,.12);}
+        .recog-tab i{font-size:.85rem;}
+        .recog-panel{display:none;border-radius:20px;overflow:hidden;text-align:center;position:relative;transition:transform .35s,border-color .35s,box-shadow .35s;}
+        .recog-panel.active{display:block;border-radius:20px;overflow:hidden;text-align:center;position:relative;transition:transform .35s,border-color .35s,box-shadow .35s;}
+.reco-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#64ffda,#007bff);opacity:0;transition:opacity .3s;}
+.reco-card:hover{transform:translateY(-6px);border-color:rgba(100,255,218,.22);}
+.reco-card:hover::before{opacity:1;}
+.reco-icon-wrap{width:59px;height:46px;border-radius:12px;background:rgba(100,255,218,.09);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.2rem;color:#64ffda;}
+.reco-card h4{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:.4rem;}
+.reco-card p{font-size:.86rem;color:#8892b0;line-height:1.6;}
+.reco-footer{margin-top:auto;display:flex;flex-direction:column;gap:6px;}
+.reco-name{font-size:.8rem;font-weight:600;color:#64ffda;display:block;}
+.static-card-img{width:100%;height:200px;object-fit:cover;border-radius:8px;margin:15px 0;border:1px solid rgba(255,255,255,.05);pointer-events:none;user-select:none;}
+.honors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;}
+.honor-card{background:linear-gradient(145deg,rgba(16,24,43,.85),rgba(10,25,47,.55));border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.8rem;display:flex;gap:1.2rem;align-items:flex-start;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;}
+.honor-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;opacity:0;transition:opacity .3s;}
+.honor-card:hover{transform:translateY(-5px);}
+.honor-card:hover::before{opacity:1;}
+.honor-card.summa .honor-icon-wrap{background:rgba(255,215,0,.14);color:#FFD700;}
+.honor-card.summa{border-color:rgba(255,215,0,.22);}
+.honor-card.summa::before{background:linear-gradient(90deg,#FFD700,#ffb300);}
+.honor-card.magna .honor-icon-wrap{background:rgba(192,192,192,.14);color:#C0C0C0;}
+.honor-card.magna{border-color:rgba(192,192,192,.18);}
+.honor-card.magna::before{background:linear-gradient(90deg,#C0C0C0,#9e9e9e);}
+.honor-card.cum .honor-icon-wrap{background:rgba(205,127,50,.15);color:#CD7F32;}
+.honor-card.cum{border-color:rgba(205,127,50,.18);}
+.honor-card.cum::before{background:linear-gradient(90deg,#CD7F32,#a0522d);}
+.honor-icon-wrap{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.honor-info h4{font-size:1rem;font-weight:800;color:#fff;margin-bottom:.2rem;}
+.honor-info .gwa-range{font-size:.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:.7rem;}
+.honor-card.summa .gwa-range{color:#FFD700;}
+.honor-card.magna .gwa-range{color:#C0C0C0;}
+.honor-card.cum .gwa-range{color:#CD7F32;}
+.honor-awardees{display:flex;flex-direction:column;gap:.35rem;}
+.honor-awardee{display:flex;align-items:center;gap:8px;font-size:.85rem;color:#8892b0;}
+.honor-awardee i{font-size:.75rem;color:inherit;opacity:.7;}
+.honor-awardee strong{color:#fff;}
+.sem-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.8rem;}
+.sem-btn{padding:6px 18px;border-radius:50px;border:1px solid rgba(255,255,255,.1);background:transparent;color:#8892b0;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .22s;font-family:'Inter',sans-serif;}
+.sem-btn:hover{background:rgba(100,255,218,.07);color:#64ffda;border-color:rgba(100,255,218,.25);}
+.sem-btn.active{background:rgba(100,255,218,.12);color:#64ffda;border-color:#64ffda;}
+.sem-panel{display:none;}
+.sem-panel.active{display:block;}
+.dl-search-wrap{position:relative;margin-bottom:1.4rem;max-width:380px;}
+.dl-search-wrap i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#8892b0;font-size:.9rem;}
+.dl-search{width:100%;padding:.65rem 1rem .65rem 2.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-family:'Inter',sans-serif;font-size:.88rem;outline:none;transition:border-color .25s,box-shadow .25s;}
+.dl-search:focus{border-color:rgba(100,255,218,.35);box-shadow:0 0 0 3px rgba(100,255,218,.06);}
+.dl-search::placeholder{color:#8892b0;}
+.dl-table-wrap{border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.07);}
+.dl-table{width:100%;border-collapse:collapse;font-size:.88rem;}
+.dl-table thead tr{background:rgba(100,255,218,.07);}
+.dl-table thead th{padding:.85rem 1.2rem;text-align:left;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#64ffda;border-bottom:1px solid rgba(255,255,255,.07);}
+.dl-table tbody tr{background:linear-gradient(145deg,rgba(16,24,43,.7),rgba(10,25,47,.4));border-bottom:1px solid rgba(255,255,255,.05);transition:background .2s;}
+.dl-table tbody tr:last-child{border-bottom:none;}
+.dl-table tbody tr:hover{background:rgba(100,255,218,.05);}
+.dl-table tbody td{padding:.78rem 1.2rem;color:#c8d0e0;}
+.dl-table tbody td:first-child{color:#fff;font-weight:600;}
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:.78rem;font-weight:800;}
+.rank-1{background:rgba(255,215,0,.18);color:#FFD700;}
+.rank-2{background:rgba(192,192,192,.16);color:#C0C0C0;}
+.rank-3{background:rgba(205,127,50,.16);color:#CD7F32;}
+.rank-n{background:rgba(100,255,218,.08);color:#64ffda;}
+.section-tag{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:4px;background:rgba(96,165,250,.1);color:#60a5fa;letter-spacing:.4px;}
+.gwa-pill{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.75rem;font-weight:700;}
+.gwa-summa{background:rgba(255,215,0,.12);color:#FFD700;}
+.gwa-magna{background:rgba(192,192,192,.1);color:#C0C0C0;}
+.gwa-cum{background:rgba(205,127,50,.1);color:#CD7F32;}
+.gwa-normal{background:rgba(100,255,218,.08);color:#64ffda;}
+.dl-empty{text-align:center;padding:2.5rem;color:#8892b0;font-size:.9rem;}
+.dl-empty i{font-size:2rem;margin-bottom:.6rem;display:block;opacity:.3;}
+.dl-count{font-size:.78rem;font-weight:600;color:#8892b0;margin-bottom:1rem;}
+.dl-count strong{color:#64ffda;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .6s ease both;}
+.bg-container{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;overflow:hidden;}
+.bg-orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;animation:pulse 10s infinite alternate;}
+.orb-1{top:-15%;left:-5%;width:600px;height:600px;background:rgba(0,102,255,.4);}
+.orb-2{bottom:-20%;right:-10%;width:700px;height:700px;background:rgba(0,40,150,.5);}
+@keyframes pulse{0%{transform:scale(1);opacity:.3}100%{transform:scale(1.05);opacity:.5}}
+footer{background-color:#051630;color:#a0aec0;padding:80px 5% 30px 5%;transition:background-color .4s;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:50px;margin-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:50px;max-width:1200px;margin-inline:auto;}
+.footer-col h4{color:#fff;font-size:1.2rem;margin-bottom:25px;font-weight:600;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:12px;}
+.footer-col ul li a{color:#a0aec0;text-decoration:none;transition:var(--transition);font-size:.95rem;display:inline-block;}
+.footer-col ul li a:hover{color:var(--lccm-yellow);transform:translateX(5px);}
+.footer-bottom{text-align:center;font-size:.85rem;}
+.glass-effect{background:rgba(16,24,43,.4);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 32px rgba(0,0,0,.3);}
+.navbar-wrapper{position:fixed;top:25px;left:0;width:100%;display:flex;justify-content:space-between;z-index:1000;padding:0 5%;}
+.navbar{display:flex;justify-content:center;align-items:center;width:max-content;padding:.8rem 2.5rem;border-radius:50px;background:rgba(10,25,47,.65);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);box-shadow:0 10px 30px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.05);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:35px;height:35px;object-fit:contain;border-radius:50%;transition:transform .3s ease;border:2px solid rgba(255,255,255,.8);}
+.brand:hover img{transform:scale(1.1);}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:.5px;color:#fff;}
+.nav-links{display:flex;list-style:none;gap:2rem;}
+.nav-links a{font-size:.85rem;font-weight:500;color:#8892b0;transition:color .3s ease,text-shadow .3s ease;}
+.nav-links a:hover,.nav-links a.active{color:#64ffda;text-shadow:0 0 8px rgba(100,255,218,.4);}
+.btn-primary{background-color:#FFD700;color:#000;padding:.5rem 1.2rem;border-radius:50px;font-weight:600;font-size:.85rem;border:none;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(255,215,0,.2);}
+.btn-primary:hover{background-color:#ffed4a;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,215,0,.4);}
+.btn-outline{background-color:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);box-shadow:none;}
+.btn-outline:hover{background-color:rgba(255,255,255,.05);border-color:#64ffda;color:#64ffda;box-shadow:0 0 15px rgba(100,255,218,.2);}
+</style>
+    </style>
+</head>
+<body>
+
+ <div class="bg-container">
+    <svg class="circuit-lines" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <pattern id="circuit-board" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
+                <path d="M 20 20 L 60 20 L 80 40 L 80 120" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+                <circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.15)"/>
+                <circle cx="80" cy="120" r="3" fill="rgba(100,255,218,0.3)"/>
+                <path d="M 150 0 L 150 50 L 180 80 L 250 80" fill="none" stroke="rgba(100,255,218,0.05)" stroke-width="1.5"/>
+                <circle cx="250" cy="80" r="2.5" fill="rgba(100,255,218,0.2)"/>
+                <path d="M 0 200 L 40 200 L 70 170 L 130 170 L 150 150 L 150 110" fill="none" stroke="rgba(0,102,255,0.1)" stroke-width="1"/>
+                <circle cx="150" cy="110" r="2" fill="rgba(0,102,255,0.3)"/>
+                <path d="M 280 200 L 250 230 L 250 280 L 220 310" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2"/>
+                <circle cx="280" cy="200" r="4" fill="rgba(255,255,255,0.1)"/>
+                <circle cx="120" cy="40" r="1.5" fill="rgba(255,215,0,0.2)"/>
+                <circle cx="210" cy="180" r="1.5" fill="rgba(255,255,255,0.2)"/>
+                <circle cx="60" cy="260" r="1.5" fill="rgba(100,255,218,0.2)"/>
+            </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#circuit-board)"/>
+        <path d="M -50 400 L 150 400 L 300 550 L 300 100%" fill="none" stroke="rgba(100,255,218,0.08)" stroke-width="2"/>
+        <circle cx="150" cy="400" r="5" fill="rgba(100,255,218,0.2)"/>
+        <path d="M 100% 250 L calc(100% - 200px) 250 L calc(100% - 350px) 100 L calc(100% - 350px) -50" fill="none" stroke="rgba(0,102,255,0.15)" stroke-width="3"/>
+        <circle cx="calc(100% - 200px)" cy="250" r="6" fill="rgba(0,102,255,0.25)"/>
+    </svg>
+</div>
+
+
+<div class="navbar-wrapper">
+    <a href="index.html" class="brand">
+        <img src="lits.jpg" alt="LITS Logo">
+        <div class="logo">LITS Tech Hub</div>
+    </a>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="student_highlights.html" class="active">Student Highlights</a></li>
+            <li><a href="documents.html">Resources</a></li>
+        </ul>
+    </nav>
+    <a href="contact_us.html" class="btn-primary nav-btn">
+        <i class="fa-solid fa-link" style="margin-right:8px;"></i>Connect with Us
+    </a>
+</div>
+
+<div class="page-hero">
+    <div class="glass-effect badge">
+        <i class="fa-solid fa-star" style="color:#FFD700;margin-right:8px;"></i>Recognizing Excellence
+    </div>
+    <h1>Student <span class="teal">Highlights</span></h1>
+    <p>Celebrating LITS members who go above and beyond in academics, competitions, and community leadership.</p>
+</div>
+
+<div class="content-section">
+    <div class="sec-label">Leadership</div>
+    <div class="sec-heading">Outstanding <span class="gold">Student Officers</span></div>
+
+    <div class="out-grid">
+    <div class="out-card gold-card fade-up">
+        <div class="ribbon">Outstanding Officer</div>
+        <div class="o-photo-wrap">
+            <img src="student_highlights/centeno.jpg" alt="Risha Katriel Centeno"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="o-photo-placeholder" style="display:none;"><i class="fa-solid fa-user-tie"></i></div>
+        </div>
+        <div class="o-info">
+            <div class="o-name">Risha Katriel Centeno</div>
+            <div class="o-pos"><i class="fa-solid fa-star" style="margin-right:5px;font-size:.7rem;"></i>President</div>
+            <div class="o-year">League of Information Technology Students</div>
+            <div class="o-year">A.Y. 2024–2025</div>
+            <span class="o-award">Outstanding Student Officer</span>
+            <div class="o-quote">"Technology is only as powerful as the community that shapes it."</div>
+        </div>
+    </div>
+
+    <div class="out-card gold-card fade-up">
+        <div class="ribbon">Outstanding Officer</div>
+        <div class="o-photo-wrap">
+            <img src="" alt=""
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="o-photo-placeholder" style="display:none;"><i class="fa-solid fa-user-tie"></i></div>
+        </div>
+        <div class="o-info">
+            <div class="o-name">TBA</div>
+            <div class="o-pos"><i class="fa-solid fa-star" style="margin-right:5px;font-size:.7rem;"></i>TBD</div>
+            <div class="o-year">League of Information Technology Students</div>
+            <div class="o-year">A.Y. 2025–2026</div>
+            <span class="o-award">Outstanding Student Officer</span>
+            <div class="o-quote">"Great leaders lift others by sharing vision, focus, and trust."</div>
+        </div>
+    </div>
+
+    <div class="out-card gold-card fade-up">
+        <div class="ribbon">Outstanding Officer</div>
+        <div class="o-photo-wrap">
+            <img src="" alt=""
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="o-photo-placeholder" style="display:none;"><i class="fa-solid fa-user-tie"></i></div>
+        </div>
+        <div class="o-info">
+            <div class="o-name">TBA</div>
+            <div class="o-pos"><i class="fa-solid fa-star" style="margin-right:5px;font-size:.7rem;"></i>TBD</div>
+            <div class="o-year">League of Information Technology Students</div>
+            <div class="o-year">A.Y. 2026–2027</div>
+            <span class="o-award">Outstanding Student Officer</span>
+            <div class="o-quote">"Service and technology together create stronger, smarter communities."</div>
+        </div>
+    </div>
+
+    <div class="out-card gold-card fade-up">
+        <div class="ribbon">Outstanding Officer</div>
+        <div class="o-photo-wrap">
+            <img src="" alt=""
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="o-photo-placeholder" style="display:none;"><i class="fa-solid fa-user-tie"></i></div>
+        </div>
+     <div class="o-info">
+    <div class="o-name">TBA</div>
+    <div class="o-pos"><i class="fa-solid fa-star" style="margin-right:5px;font-size:.7rem;"></i>TBD</div>
+    <div class="o-year">League of Information Technology Students</div>
+    <div class="o-year">A.Y. 2027–2028</div>
+    <span class="o-award">Outstanding Student Officer</span>
+    <div class="o-quote">"Leadership means inspiring others to explore new ideas and create meaningful work."</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="sec-divider"> 
+ 
+    <div class="content-section">
+    <div class="sec-label">Academic Excellence</div>
+    <div class="sec-heading">Student <span class="teal">Recognition</span></div>
+    <div class="sec-sub">Browse by category using the tabs below.</div>
+
+    <div class="recog-tabs">
+        <button class="recog-tab active" onclick="switchRecogTab('awards', this)">
+            <i class="fa-solid fa-certificate"></i> Academic Awards
+        </button>
+        <button class="recog-tab" onclick="switchRecogTab('honors', this)">
+            <i class="fa-solid fa-graduation-cap"></i> Latin Honors
+        </button>
+        <button class="recog-tab" onclick="switchRecogTab('deanslist', this)">
+            <i class="fa-solid fa-list-ol"></i> Dean's List
+        </button>
+    </div>
+
+    <div class="recog-panel active" id="panel-awards">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.8rem;">
+        <div class="reco-card fade-up" style="display:flex;flex-direction:column;height:100%;background:linear-gradient(145deg,rgba(16,24,43,.85),rgba(10,25,47,.55));border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.9rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;">
+            <div class="reco-icon-wrap"><i class="fa-solid fa-book-open"></i></div>
+            <h4>IT Quiz Bee 2026 Winners</h4>
+            <img src="student_highlights/quizbee2026.jpg" alt="IT Quiz Bee 2026" class="static-card-img" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+            <div class="reco-footer" style="margin-top: auto;">
+                <span class="reco-name" style="display:block;"><i class="fa-solid fa-user" style="margin-right:5px;font-size:.75rem;"></i>Angel Bautista · BSIT 41</span>
+                <span class="reco-name" style="display:block;"><i class="fa-solid fa-user" style="margin-right:5px;font-size:.75rem;"></i>Gon Metiam · BSIT 31</span>
+            </div>
+        </div>
+
+        <div class="reco-card fade-up" style="display:flex;flex-direction:column;height:100%;animation-delay:.08s;background:linear-gradient(145deg,rgba(16,24,43,.85),rgba(10,25,47,.55));border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.9rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;">
+            <div class="reco-icon-wrap"><i class="fa-solid fa-lightbulb"></i></div>
+            <h4>Architecton 2026 Champion</h4>
+            <img src="student_highlights/architecton2026.jpg" alt="Architecton Champion" class="static-card-img" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+            <div class="reco-footer" style="margin-top: auto;">
+                <span class="reco-name" style="display:block;"><i class="fa-solid fa-user" style="margin-right:5px;font-size:.75rem;"></i>Kyle Gelomio, Cedric Marfil & Gon Metiam · BSIT 31</span>
+            </div>
+        </div>
+
+        <div class="reco-card fade-up" style="display:flex;flex-direction:column;height:100%;animation-delay:.16s;background:linear-gradient(145deg,rgba(16,24,43,.85),rgba(10,25,47,.55));border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.9rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;">
+            <div class="reco-icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
+            <h4>Code Clash 2026 Champion</h4>
+            <img src="student_highlights/Codeclash2026.jpg" alt="Code Clash 2026" class="static-card-img" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+            <div class="reco-footer" style="margin-top: auto;">
+                <span class="reco-name" style="display:block;"><i class="fa-solid fa-user" style="margin-right:5px;font-size:.75rem;"></i>Sean Napala & Group · BSIT 21</span>
+            </div>
+        </div>
+
+        <div class="reco-card fade-up" style="display:flex;flex-direction:column;height:100%;animation-delay:.24s;background:linear-gradient(145deg,rgba(16,24,43,.85),rgba(10,25,47,.55));border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.9rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;">
+            <div class="reco-icon-wrap"><i class="fa-solid fa-network-wired"></i></div>
+            <h4>NetBuilders 2026 Champion</h4>
+            <img src="student_highlights/netbuilders2026.jpg" alt="NetBuilders 2026" class="static-card-img" style="width:100%; height:200px; object-fit:cover; border-radius:8px; margin-bottom:1rem;">
+            <div class="reco-footer" style="margin-top: auto;">
+                <span class="reco-name" style="display:block;"><i class="fa-solid fa-user" style="margin-right:5px;font-size:.75rem;"></i>Wayne Pritchard & Group · BSIT 31, 21, 11</span>
+            </div>
+        </div>
+
+        <div class="reco-card fade-up" style="display:flex;flex-direction:column;height:100%;animation-delay:.32s;background:linear-gradient(145deg,rgba(16,24,43,.85),rgba(10,25,47,.55));border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.9rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;">
+            <div class="reco-icon-wrap"><i class="fa-solid fa-clock"></i></div>
+            <h4>Future Academic Recognitions</h4>
+            <div class="o-photo-placeholder static-card-img" style="width:100%; height:200px; border-radius:8px; margin-bottom:1rem; background:linear-gradient(135deg,rgba(100,255,218,.08),rgba(0,102,255,.1)); border:1px solid rgba(100,255,218,.2); display:flex; align-items:center; justify-content:center; font-size:2rem; color:rgba(100,255,218,.5);">
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="reco-footer" style="margin-top: auto;">
+                <span class="reco-name" style="display:block;"><i class="fa-solid fa-star" style="margin-right:5px;font-size:.75rem;"></i>More achievements coming soon</span>
+                <span class="reco-name" style="display:block;"><i class="fa-solid fa-rocket" style="margin-right:5px;font-size:.75rem;"></i>LITS A.Y. 2026–2027</span>
+            </div>
+        </div>
+        <div class="reco-card fade-up" style="display:flex;flex-direction:column;height:100%;animation-delay:.32s;background:linear-gradient(145deg,rgba(16,24,43,.85),rgba(10,25,47,.55));border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.9rem;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;">
+            <div class="reco-icon-wrap"><i class="fa-solid fa-clock"></i></div>
+            <h4>Future Academic Recognitions</h4>
+            <div class="o-photo-placeholder static-card-img" style="width:100%; height:200px; border-radius:8px; margin-bottom:1rem; background:linear-gradient(135deg,rgba(100,255,218,.08),rgba(0,102,255,.1)); border:1px solid rgba(100,255,218,.2); display:flex; align-items:center; justify-content:center; font-size:2rem; color:rgba(100,255,218,.5);">
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="reco-footer" style="margin-top: auto;">
+                <span class="reco-name" style="display:block;"><i class="fa-solid fa-star" style="margin-right:5px;font-size:.75rem;"></i>More achievements coming soon</span>
+                <span class="reco-name" style="display:block;"><i class="fa-solid fa-rocket" style="margin-right:5px;font-size:.75rem;"></i>LITS A.Y. 2026–2027</span>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+     <div class="recog-panel" id="panel-deanslist">
+        <div class="sem-bar">
+            <button class="sem-btn active" onclick="switchSem('sem-2324-1', this)">1st Sem SY 23–24</button>
+            <button class="sem-btn" onclick="switchSem('sem-2324-2', this)">2nd Sem SY 23–24</button>
+            <button class="sem-btn" onclick="switchSem('sem-2425-1', this)">1st Sem SY 24–25</button>
+            <button class="sem-btn" onclick="switchSem('sem-2425-2', this)">2nd Sem SY 24–25</button>
+            <button class="sem-btn" onclick="switchSem('sem-2526-1', this)">1st Sem SY 25–26</button>
+        </div>
+
+        <div class="sem-panel active" id="sem-2324-1"></div>
+        <div class="sem-panel" id="sem-2324-2"></div>
+        <div class="sem-panel" id="sem-2425-1"></div>
+        <div class="sem-panel" id="sem-2425-2"></div>
+        <div class="sem-panel" id="sem-2526-1"></div>
+    </div>
+</div>
+<div class="sem-panel active" id="sem-2324-1">
+<hr class="sec-divider">
+
+<div class="content-section">
+    <div class="sec-label">Non-Academic Competitions</div>
+    <div class="sec-heading"><span class="teal">Individual</span> Awards</div>
+
+    <div class="comp-list">
+        <div class="comp-item fade-up" style="animation-delay:.14s">
+            <div class="comp-medal medal-gold"><i class="fa-solid fa-award"></i></div>
+            <div class="comp-details">
+                <h4>IT Week Mobile Legends Esports 2026 — Finals MVP</h4>
+                <p>Hawley Kirk Cruz · BSIT 31</p>
+            </div>
+        </div>
+        <div class="comp-item fade-up" style="animation-delay:.21s">
+            <div class="comp-medal medal-silver"><i class="fa-solid fa-volleyball-ball"></i></div>
+            <div class="comp-details">
+                <h4>Sportfest Men's Volleyball — Mythical 6</h4>
+                <p>Leicho Baruwa · BSIT 31</p>
+            </div>
+        </div>
+        <div class="comp-item fade-up" style="animation-delay:.21s">
+            <div class="comp-medal medal-silver"><i class="fa-solid fa-volleyball-ball"></i></div>
+            <div class="comp-details">
+                <h4>Sportfest Women's Volleyball 2026 — Mythical 6</h4>
+                <p>Charis Cuaton · BSIT 21</p>
+            </div>
+        </div>
+        <div class="comp-item fade-up" style="animation-delay:.21s">
+            <div class="comp-medal medal-bronze"><i class="fa-solid fa-basketball"></i></div>
+            <div class="comp-details">
+                <h4>Sportfest Men's Basketball 2026 — Mythical 5</h4>
+                <p>Daryl Mupas · BSIT 21</p>
+            </div>
+        </div>
+        <div class="comp-item fade-up" style="animation-delay:.21s">
+            <div class="comp-medal medal-bronze"><i class="fa-solid fa-basketball"></i></div>
+            <div class="comp-details">
+                <h4>Sportfest Men's Basketball 2026 — Mythical 5</h4>
+                <p>Murshid Ferrer · BSIT 31</p>
+            </div>
+        </div>
+        <div class="comp-item fade-up" style="animation-delay:.35s">
+            <div class="comp-medal medal-bronze"><i class="fa-solid fa-basketball"></i></div>
+            <div class="comp-details">
+                <h4>Sportfest Men's Basketball 2025 — Best Defensive Player</h4>
+                <p>John Paul Ezekiel Johnson · BSIT 21</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="sec-divider">
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col reveal">
+            <div style="display:flex;align-items:center;gap:15px;margin-bottom:25px;">
+                <img src="lits.jpg" alt="LITS Logo" style="width:45px;background:white;border-radius:50%;border:2px solid var(--lccm-yellow);">
+                <h3 style="color:white;font-size:1.5rem;font-weight:800;">LITS Tech Hub</h3>
+            </div>
+            <p style="line-height:1.8;">The official student organization of the Information Technology Department at La Consolacion College Manila. Innovating the future, today.</p>
+        </div>
+        <div class="footer-col reveal delay-1">
+            <h4>Quick Navigation</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="student_highlights.html">Student Highlights</a></li>
+                <li><a href="documents.html">Resources</a></li>
+            </ul>
+        </div>
+        <div class="footer-col reveal delay-2">
+            <h4>Connect With Us</h4>
+            <ul>
+                <li><a href="https://www.facebook.com/litslccm" target="_blank"><i class="fab fa-facebook" style="width:25px;"></i> Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 League of Information Technology (LITS). All Rights Reserved.</p>
+        <p style="font-size:.8rem;margin-top:10px;opacity:.6;">Disclaimer: This website was created as a project requirement for the WS101 course and serves for educational purposes.</p>
+    </div>
+</footer>
+
+<script>
+    const allDeansListData = {
+        'sem-2324-1': [
+            { rank: 1, name: "VILLORIA, JOHN NICHOLAS NOEL LUNA", yearLevel: "3rd Year", gwa: "1.25" },
+            { rank: 2, name: "BULFA, VERGEL AIRA MOTIN", yearLevel: "2nd Year", gwa: "1.32" },
+            { rank: 3, name: "SALES, JULIA ERON LEGASPI", yearLevel: "3rd Year", gwa: "1.33" },
+            { rank: 4, name: "BAUTISTA, ANGEL ANN EVANGELISTA", yearLevel: "2nd Year", gwa: "1.35" },
+            { rank: 5, name: "CALONSAG, SAMANTHA GAILE ESPIRITU", yearLevel: "1st Year", gwa: "1.45" },
+            { rank: 6, name: "CHUA, JEYMAR ALICABA", yearLevel: "2nd Year", gwa: "1.45" },
+            { rank: 7, name: "HITO, JHON RICHARD MARQUEZ", yearLevel: "1st Year", gwa: "1.52" },
+            { rank: 8, name: "AGAPITO, BERNADETTE PONCE", yearLevel: "1st Year", gwa: "1.54" },
+            { rank: 9, name: "SOTTO, ARJAY DOGUILES", yearLevel: "2nd Year", gwa: "1.54" },
+            { rank: 10, name: "CELLO, ANNA LEA PATRICIO", yearLevel: "1st Year", gwa: "1.58" },
+            { rank: 11, name: "AGONCILLO, DARREN ROSCHDALE DELA CRUZ", yearLevel: "2nd Year", gwa: "1.58" },
+            { rank: 12, name: "GELOMIO, KYLE GABRIEL NOLASCO", yearLevel: "1st Year", gwa: "1.59" },
+            { rank: 13, name: "GOMEZ, EIZEL ASHLEY BANTUGAN", yearLevel: "1st Year", gwa: "1.62" },
+            { rank: 14, name: "CRUZ, HAWLEY KIRK DE VRIES", yearLevel: "1st Year", gwa: "1.64" },
+            { rank: 15, name: "ABISAN, DARWIN BALINGIT", yearLevel: "1st Year", gwa: "1.68" },
+            { rank: 16, name: "FACTORAN, CASSANDRA KATE ACULA", yearLevel: "1st Year", gwa: "1.68" },
+            { rank: 17, name: "METIAM, GON ALRIC COFREROS", yearLevel: "1st Year", gwa: "1.71" },
+            { rank: 18, name: "PUNZALAN, DYNERIZZA KATE BALUYOT", yearLevel: "2nd Year", gwa: "1.75" }
+            ],
+        'sem-2324-2': [
+            { rank: 1, name: "SALES, JULIA ERON LEGASPI", yearLevel: "3rd Year", gwa: "1.25" },
+            { rank: 2, name: "CENTENO, RISHA KATRIEL CONDALOR", yearLevel: "3rd Year", gwa: "1.29" },
+            { rank: 3, name: "BAUTISTA, ANGEL ANN EVANGELISTA", yearLevel: "2nd Year", gwa: "1.36" },
+            { rank: 4, name: "BULFA, VERGEL AIRA MOTIN", yearLevel: "2nd Year", gwa: "1.41" },
+            { rank: 5, name: "VILLORIA, JOHN NICHOLAS NOEL LUNA", yearLevel: "3rd Year", gwa: "1.46" },
+            { rank: 6, name: "ABISAN, DARWIN BALINGIT", yearLevel: "1st Year", gwa: "1.47" },
+            { rank: 7, name: "CALONSAG, SAMANTHA GAILE ESPIRITU", yearLevel: "1st Year", gwa: "1.48" },
+            { rank: 8, name: "PRITCHARD, WAYNE JESUS PALIMOCON", yearLevel: "1st Year", gwa: "1.48" },
+            { rank: 9, name: "CRUZ, HAWLEY KIRK DE VRIES", yearLevel: "1st Year", gwa: "1.50" },
+            { rank: 10, name: "ZACARIAS, PHILLIP CHARLES CAYETANO", yearLevel: "1st Year", gwa: "1.50" },
+            { rank: 11, name: "CELLO, ANNA LEA PATRICIO", yearLevel: "1st Year", gwa: "1.51" },
+            { rank: 12, name: "HITO, JHON RICHARD MARQUEZ", yearLevel: "1st Year", gwa: "1.51" },
+            { rank: 13, name: "MARFIL, CEDRIC JOHN DE LEON", yearLevel: "1st Year", gwa: "1.51" },
+            { rank: 14, name: "AGAPITO, BERNADETTE PONCE", yearLevel: "1st Year", gwa: "1.54" },
+            { rank: 15, name: "GOMEZ, EIZEL ASHLEY BANTUGAN", yearLevel: "1st Year", gwa: "1.54" },
+            { rank: 16, name: "SOTTO, ARJAY DOGUILES", yearLevel: "2nd Year", gwa: "1.54" },
+            { rank: 17, name: "CABILES, CHRYSTALENE JOYCE CAJAYON", yearLevel: "1st Year", gwa: "1.56" },
+            { rank: 18, name: "GELOMIO, KYLE GABRIEL NOLASCO", yearLevel: "1st Year", gwa: "1.58" },
+            { rank: 19, name: "GALGANA, MARIVIC", yearLevel: "1st Year", gwa: "1.60" },
+            { rank: 20, name: "AGONCILLO, DARREN ROSCHDALE DELA CRUZ", yearLevel: "2nd Year", gwa: "1.60" },
+            { rank: 21, name: "ALPAPARA, FRANCO JOSEF GIANNI GONZALES", yearLevel: "1st Year", gwa: "1.61" },
+            { rank: 22, name: "BARUWA, JOHN LEICHO MANGAHAS", yearLevel: "1st Year", gwa: "1.61" },
+            { rank: 23, name: "MAGALONA, EURI BRUTAS", yearLevel: "1st Year", gwa: "1.61" },
+            { rank: 24, name: "METIAM, GON ALRIC COFREROS", yearLevel: "1st Year", gwa: "1.61" },
+            { rank: 25, name: "GESTA, TRIXIE ANNE PUMICPIC", yearLevel: "1st Year", gwa: "1.63" },
+            { rank: 26, name: "DIMAGUILA, JAMIE CHRISTIANA PATRICIO", yearLevel: "1st Year", gwa: "1.67" },
+            { rank: 27, name: "FACTORAN, CASSANDRA KATE ACULA", yearLevel: "1st Year", gwa: "1.68" },
+            { rank: 28, name: "BERNABE, MA. LYN VILLA", yearLevel: "1st Year", gwa: "1.70" },
+            { rank: 29, name: "CARLOS, ALROSE CUPINA", yearLevel: "1st Year", gwa: "1.71" }
+            ],
+        'sem-2425-1': [
+            { rank: 1, name: "BAUTISTA, ANGEL ANN EVANGELISTA", yearLevel: "3rd Year", gwa: "1.29" },
+            { rank: 2, name: "CENTENO, RISHA KATRIEL CONDALOR", yearLevel: "4th Year", gwa: "1.29" },
+            { rank: 3, name: "CALONSAG, SAMANTHA GAILE ESPIRITU", yearLevel: "2nd Year", gwa: "1.32" },
+            { rank: 4, name: "SALES, JULIA ERON LEGASPI", yearLevel: "4th Year", gwa: "1.33" },
+            { rank: 5, name: "VILLORIA, JOHN NICHOLAS NOEL LUNA", yearLevel: "4th Year", gwa: "1.33" },
+            { rank: 6, name: "CELLO, ANNA LEA PATRICIO", yearLevel: "2nd Year", gwa: "1.35" },
+            { rank: 7, name: "AGONCILLO, DARREN ROSCHDALE DELA CRUZ", yearLevel: "3rd Year", gwa: "1.38" },
+            { rank: 8, name: "GALGANA, MARIVIC", yearLevel: "2nd Year", gwa: "1.41" },
+            { rank: 9, name: "GOMEZ, EIZEL ASHLEY BANTUGAN", yearLevel: "2nd Year", gwa: "1.41" },
+            { rank: 10, name: "VIRTUDEZ, BRIANNE DANIEL SABINO", yearLevel: "1st Year", gwa: "1.42" },
+            { rank: 11, name: "BULFA, VERGEL AIRA MOTIN", yearLevel: "3rd Year", gwa: "1.42" },
+            { rank: 12, name: "CHUA, JEYMAR ALICABA", yearLevel: "3rd Year", gwa: "1.42" },
+            { rank: 13, name: "SOTTO, ARJAY DOGUILES", yearLevel: "3rd Year", gwa: "1.42" },
+            { rank: 14, name: "CARLOS, ALISSA MAE ALBOS", yearLevel: "1st Year", gwa: "1.44" },
+            { rank: 15, name: "HUMILDE, ERICA JEAN CANJA", yearLevel: "1st Year", gwa: "1.45" },
+            { rank: 16, name: "REYES, ARCH MICHAEL ACEDO", yearLevel: "4th Year", gwa: "1.46" },
+            { rank: 17, name: "SALVADOR, JOHN MICHAEL LAGAHID", yearLevel: "1st Year", gwa: "1.47" },
+            { rank: 18, name: "ALVAREZ, KRIYDEL GARCIA", yearLevel: "1st Year", gwa: "1.48" },
+            { rank: 19, name: "SABAR, ABBYGAIL PUGADO", yearLevel: "1st Year", gwa: "1.48" },
+            { rank: 20, name: "MARANAN, CHELSY MAE CASAYURAN", yearLevel: "1st Year", gwa: "1.49" },
+            { rank: 21, name: "BALAIS, MARK LAWRENCE TIONGSON", yearLevel: "1st Year", gwa: "1.50" },
+            { rank: 22, name: "NAPALA, SEAN RENAN ORTEGA", yearLevel: "1st Year", gwa: "1.50" },
+            { rank: 23, name: "DE LEON, CHARLES AMABA", yearLevel: "3rd Year", gwa: "1.50" },
+            { rank: 24, name: "GRONA, LEONIDEZ ACERO", yearLevel: "1st Year", gwa: "1.51" },
+            { rank: 25, name: "CAPULI, ANGELA MITCHELLE BAUTISTA", yearLevel: "1st Year", gwa: "1.53" },
+            { rank: 26, name: "AGAPITO, BERNADETTE PONCE", yearLevel: "2nd Year", gwa: "1.53" },
+            { rank: 27, name: "SAGALA, SHEILA MAE DULFO", yearLevel: "1st Year", gwa: "1.54" },
+            { rank: 28, name: "ABISAN, DARWIN BALINGIT", yearLevel: "2nd Year", gwa: "1.54" },
+            { rank: 29, name: "BAUTISTA, RYU ALINEA", yearLevel: "1st Year", gwa: "1.57" },
+            { rank: 30, name: "CRUZ, HAWLEY KIRK DE VRIES", yearLevel: "2nd Year", gwa: "1.57" },
+            { rank: 31, name: "BARUWA, JOHN LEICHI MANGAHAS", yearLevel: "3rd Year", gwa: "1.62" },
+            { rank: 32, name: "METIAM, GON ALRIC COFREROS", yearLevel: "3rd Year", gwa: "1.67" },
+            { rank: 33, name: "ISIP, ALIELLE MALVI DUHILING", yearLevel: "1st Year", gwa: "1.69" },
+            { rank: 34, name: "PAJARILLA, MAXIMO III DELADIA", yearLevel: "1st Year", gwa: "1.69" },
+            { rank: 35, name: "ZOLETA, JHERALD IAN  MALIHOC", yearLevel: "1st Year", gwa: "1.69" },
+            { rank: 36, name: "ARINGO, JOANNE NAZARETTE  ARCILLA", yearLevel: "1st Year", gwa: "1.69" },
+            { rank: 37, name: "FUERTEZ, MATT CHRISTIAN PURIO", yearLevel: "1st Year", gwa: "1.71" },
+            { rank: 38, name: "MANULON, DATU FARSHAD SAKIB", yearLevel: "1st Year", gwa: "1.72" },
+        ],
+        'sem-2425-2': [
+        ],
+        'sem-2526-1': [
+        ]
+    };
+function buildDL(panelId, data) {
+    const panel = document.getElementById(panelId);
+    if (!panel) return;
+
+    const searchId = 'search-' + panelId;
+    const tableId = 'table-' + panelId;
+    const countId = 'count-' + panelId;
+    const emptyId = 'empty-' + panelId;
+
+    const gwaClass = (g) => {
+        const v = parseFloat(g);
+        if (v <= 1.20) return 'gwa-summa';
+        if (v <= 1.45) return 'gwa-magna';
+        if (v <= 1.75) return 'gwa-cum';
+        return 'gwa-normal';
+    };
+
+    const rankBadge = (r) => {
+        const cls = r === 1 ? 'rank-1' : r === 2 ? 'rank-2' : r === 3 ? 'rank-3' : 'rank-n';
+        return `<span class="rank-badge ${cls}">${r}</span>`;
+    };
+
+    const renderRows = (list) => {
+        const tableBody = document.getElementById(tableId);
+        const countDisplay = document.getElementById(countId);
+        const emptyState = document.getElementById(emptyId);
+
+        if (list.length === 0) {
+            tableBody.innerHTML = '';
+            countDisplay.innerHTML = '';
+            emptyState.style.display = 'block';
+            return;
+        }
+
+        emptyState.style.display = 'none';
+        countDisplay.innerHTML = `Showing <strong>${list.length}</strong> of <strong>${data.length}</strong> students`;
+
+        tableBody.innerHTML = list.map(s => `
+            <tr>
+                <td>${rankBadge(s.rank)}</td>
+                <td>${s.name}</td>
+                <td><span class="year-tag">${s.yearLevel}</span></td>
+                <td><span class="gwa-pill ${gwaClass(s.gwa)}">${s.gwa}</span></td>
+            </tr>`).join('');
+    };
+
+    panel.innerHTML = `
+        <div class="dl-search-wrap">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="${searchId}" class="dl-search" type="text" placeholder="Search by name or section…">
+        </div>
+        <div class="dl-count" id="${countId}"></div>
+        <div class="dl-table-wrap">
+            <table class="dl-table">
+                <thead>
+                    <tr>
+                        <th style="width:52px"><i class="fa-solid fa-hashtag"></i> Rank</th>
+                        <th><i class="fa-solid fa-user"></i> Student Name</th>
+                        <th>Year Level</th>
+                        <th>GWA</th>
+                    </tr>
+                </thead>
+                <tbody id="${tableId}"></tbody>
+            </table>
+        </div>
+        <div class="dl-empty" id="${emptyId}" style="display:none;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            No students match your search.
+        </div>`;
+
+    renderRows(data);
+
+    document.getElementById(searchId).addEventListener('input', function() {
+        const q = this.value.toLowerCase().trim();
+        renderRows(q ? data.filter(s =>
+            s.name.toLowerCase().includes(q) || s.yearLevel.toLowerCase().includes(q)
+        ) : data);
+    });
+}
+
+function switchRecogTab(tab, el) {
+    document.querySelectorAll('.recog-tab').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.recog-panel').forEach(panel => {
+        panel.classList.remove('active');
+        panel.style.opacity = 0;
+        panel.style.transform = "translateY(20px)";
+    });
+
+    el.classList.add('active');
+
+    const activePanel = document.getElementById('panel-' + tab);
+    activePanel.classList.add('active');
+
+    setTimeout(() => {
+        activePanel.style.transition = "all .45s ease";
+        activePanel.style.opacity = 1;
+        activePanel.style.transform = "translateY(0)";
+    }, 50);
+}
+
+function switchSem(semId, el) {
+    document.querySelectorAll('.sem-btn').forEach(btn => btn.classList.remove('active'));
+
+    document.querySelectorAll('.sem-panel').forEach(panel => {
+        panel.classList.remove('active');
+        panel.style.opacity = 0;
+        panel.style.transform = "translateY(20px)";
+    });
+
+    el.classList.add('active');
+
+    const activePanel = document.getElementById(semId);
+    activePanel.classList.add('active');
+
+    setTimeout(() => {
+        activePanel.style.transition = "all .45s ease";
+        activePanel.style.opacity = 1;
+        activePanel.style.transform = "translateY(0)";
+    }, 50);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    Object.keys(allDeansListData).forEach(semId => {
+        buildDL(semId, allDeansListData[semId]);
+    });
+});
+</script>
+
+</body>
+</html>
