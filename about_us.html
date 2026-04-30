@@ -115,6 +115,15 @@ footer{background-color:#051630;color:#a0aec0;padding:80px 5% 30px 5%;transition
 .btn-primary:hover{background-color:#ffed4a;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,215,0,.4);}
 .btn-outline{background-color:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);box-shadow:none;}
 .btn-outline:hover{background-color:rgba(255,255,255,.05);border-color:#64ffda;color:#64ffda;box-shadow:0 0 15px rgba(100,255,218,.2);}
+    /* --- Mobile Navigation Styles --- */
+.mobile-toggle{display:none;background:transparent;border:none;color:#64ffda;font-size:1.8rem;cursor:pointer;z-index:1001;}
+@media (max-width:768px){
+    .mobile-toggle{display:block;}
+    .nav-btn{display:none;}
+    .navbar{display:none;}
+    .navbar.active{display:flex;position:absolute;top:80px;left:5%;width:90%;flex-direction:column;background:rgba(10,25,47,.95);backdrop-filter:blur(15px);border:1px solid rgba(100,255,218,.2);border-radius:15px;padding:20px 0;box-shadow:0 10px 30px rgba(0,0,0,.8);}
+    .navbar.active .nav-links{display:flex !important;flex-direction:column;width:100%;gap:20px;text-align:center;}
+   
 </style>
 </head>
 <body>
@@ -150,10 +159,15 @@ footer{background-color:#051630;color:#a0aec0;padding:80px 5% 30px 5%;transition
         <img src="lits.jpg" alt="LITS Logo">
         <div class="logo">LITS Tech Hub</div>
     </a>
+    
+    <button class="mobile-toggle" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
     <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about_us.html" class="active">About Us</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="student_highlights.html">Student Highlights</a></li>
             <li><a href="documents.html">Resources</a></li>
@@ -497,6 +511,26 @@ document.querySelectorAll('.year-btn').forEach(btn => {
 document.addEventListener('DOMContentLoaded', function() {
   renderOfficers('2025-2026');
 });
+    // Mobile Menu Toggle Logic
+const mobileToggle = document.querySelector('.mobile-toggle');
+const navbar = document.querySelector('.navbar');
+const toggleIcon = document.querySelector('.mobile-toggle i');
+
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+        // Toggle the dropdown menu
+        navbar.classList.toggle('active');
+        
+        // Change icon between 'bars' and 'x'
+        if (navbar.classList.contains('active')) {
+            toggleIcon.classList.remove('fa-bars');
+            toggleIcon.classList.add('fa-xmark');
+        } else {
+            toggleIcon.classList.remove('fa-xmark');
+            toggleIcon.classList.add('fa-bars');
+        }
+    });
+}
 </script>
 
 </body>
