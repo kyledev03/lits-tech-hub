@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LITS Tech Hub | Home</title>
+    <link rel="icon" type="image/png" href="photos/titlelogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* {margin: 0;padding: 0;box-sizing: border-box;}
+body {background-color: #010409;background-image: radial-gradient(ellipse at top, #0A192F 0%, #010409 70%),linear-gradient(135deg, #010409 0%, #040D21 100%);color: #ffffff;
+font-family: 'Inter', sans-serif;line-height: 1.6;overflow-x: hidden;position: relative;}
+a{text-decoration:none;color:inherit;}
+.bg-container{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;overflow:hidden;}
+.bg-orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;animation:pulse 10s infinite alternate;}
+.orb-1{top:-15%;left:-5%;width:600px;height:600px;background:rgba(0,102,255,.4);}
+.orb-2{bottom:-20%;right:-10%;width:700px;height:700px;background:rgba(0,40,150,.5);}
+.orb-3{top:40%;left:40%;width:400px;height:400px;background:rgba(255,215,0,.05);filter:blur(120px);}
+.circuit-lines{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.6;}
+.particle{position:absolute;border:1px solid rgba(255,255,255,.2);animation:floatParticle 10s infinite linear;box-shadow:0 0 10px rgba(255,255,255,.1);}
+.p-circle-1{top:25%;right:20%;width:12px;height:12px;border-radius:50%;border-color:rgba(255,215,0,.5);background:rgba(255,215,0,.1);}
+.p-circle-2{bottom:30%;left:15%;width:8px;height:8px;border-radius:50%;border-color:rgba(0,102,255,.8);background:rgba(0,102,255,.2);}
+.p-triangle{top:65%;right:30%;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:14px solid rgba(255,255,255,.15);border-top:none;background:transparent;animation:spinFloat 15s infinite linear;}
+@keyframes pulse{0%{transform:scale(1);opacity:.3;}100%{transform:scale(1.05);opacity:.5;}}
+@keyframes floatParticle{0%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-30px) rotate(180deg);}100%{transform:translateY(0) rotate(360deg);}}
+@keyframes spinFloat{0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(-40px) rotate(360deg);}}
+.glass-effect{background:rgba(16,24,43,.4);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);box-shadow:0 8px 32px rgba(0,0,0,.3);}
+.navbar-wrapper{position:fixed;top:25px;left:0;width:100%;display:flex;justify-content:space-between;z-index:1000;padding:0 5%;}
+.navbar{display:flex;justify-content:center;align-items:center;width:max-content;padding:.8rem 2.5rem;border-radius:50px;background:rgba(10,25,47,.65);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);box-shadow:0 10px 30px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.05);}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{width:35px;height:35px;object-fit:contain;border-radius:50%;transition:transform .3s ease;border:2px solid rgba(255,255,255,.8);}
+.brand:hover img{transform:scale(1.1);}
+.logo{font-size:1.1rem;font-weight:700;letter-spacing:.5px;color:#fff;}
+.nav-links{display:flex;list-style:none;gap:2rem;}
+.nav-links a{font-size:.85rem;font-weight:500;color:#8892b0;transition:color .3s ease,text-shadow .3s ease;}
+.nav-links a:hover,.nav-links a.active{color:#64ffda;text-shadow:0 0 8px rgba(100,255,218,.4);}
+.btn-primary{background-color:#FFD700;color:#000;padding:.5rem 1.2rem;border-radius:50px;font-weight:600;font-size:.85rem;border:none;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 15px rgba(255,215,0,.2);}
+.btn-primary:hover{background-color:#ffed4a;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,215,0,.4);}
+.btn-outline{background-color:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);box-shadow:none;}
+.btn-outline:hover{background-color:rgba(255,255,255,.05);border-color:#64ffda;color:#64ffda;box-shadow:0 0 15px rgba(100,255,218,.2);}
+.hero{display:flex;justify-content:space-between;align-items:center;text-align:left;min-height:100vh;padding:8rem 4rem;max-width:1700px;position:relative;margin:0 auto;gap:40px;}
+.hero-content{position:relative;flex:1;z-index:2;display:flex;flex-direction:column;align-items:flex-start;}
+.hero-graphics{flex:1;display:flex;justify-content:center;align-items:center;position:relative;z-index:2;}
+.badge{display:inline-flex;align-items:center;padding:.5rem 1.5rem;border-radius:50px;font-size:.85rem;color:#fff;font-weight:500;margin-bottom:1.5rem;}
+.hero h2{font-size:7.5em;font-weight:800;letter-spacing:-.05em;margin-bottom:1.5rem;line-height:1.1;color:#fff;letter-spacing:-.03em;}
+.hero h2 span.blue-text{background:linear-gradient(90deg,#64ffda,#007bff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:1.15rem;color:#8892b0;margin-bottom:2.5rem;max-width:650px;line-height:1.8;}
+.hero-actions{display:flex;gap:15px;}
+.robot-container{width:100%;max-width:600px;cursor:pointer;position:relative;}
+.robot-svg{width:100%;height:auto;overflow:visible;}
+.robot-body-group{animation:botFloat 4s ease-in-out infinite;}
+.robot-shadow{animation:shadowPulse 4s ease-in-out infinite;transform-origin:center;}
+@keyframes botFloat{0%,100%{transform:translateY(0px);}50%{transform:translateY(-20px);}}
+@keyframes shadowPulse{0%,100%{transform:scale(1);opacity:.8;}50%{transform:scale(.7);opacity:.3;}}
+.robot-container:hover .robot-body-group{animation:botFloatHover 1.5s ease-in-out infinite alternate;}
+@keyframes botFloatHover{0%{transform:translateY(-10px);}100%{transform:translateY(-25px);}}
+.robot-arm-left{transform-origin:45px 135px;transition:transform .3s ease;}
+.robot-container:hover .robot-arm-left{animation:waveLeft .5s ease-in-out infinite alternate;}
+@keyframes waveLeft{0%{transform:rotate(0deg);}100%{transform:rotate(45deg);}}
+.robot-arm-right{transform-origin:155px 135px;transition:transform .3s ease;}
+.robot-container:hover .robot-arm-right{animation:waveRight .5s ease-in-out infinite alternate;}
+@keyframes waveRight{0%{transform:rotate(0deg);}100%{transform:rotate(-45deg);}}
+.robot-eye{transition:all .3s ease;}
+.robot-container:hover .robot-eye{fill:#64ffda;filter:drop-shadow(0 0 8px #64ffda);}
+.robot-antenna-bulb{transition:all .3s ease;}
+.robot-container:hover .robot-antenna-bulb{fill:#0066ff;filter:drop-shadow(0 0 10px #0066ff);animation:bulbPulse .4s infinite alternate;}
+@keyframes bulbPulse{0%{transform:scale(1);}100%{transform:scale(1.4);}}
+.speech-bubble{position:absolute;top:-20px;right:30px;background:linear-gradient(135deg,#0A192F,#008ce6);color:#fff;padding:14px 24px;border-radius:20px;font-size:1.15rem;font-weight:600;white-space:nowrap;box-shadow:0 10px 25px rgba(0,140,230,.4);pointer-events:none;z-index:10;opacity:0;transform:translateY(20px) scale(.8);transition:all .4s cubic-bezier(.68,-.55,.265,1.55);}
+.speech-bubble::after{content:'';position:absolute;bottom:-10px;left:40px;border-width:10px 10px 0;border-style:solid;border-color:#008ce6 transparent transparent transparent;display:block;width:0;}
+.robot-container:hover .speech-bubble{opacity:1;transform:translateY(0) scale(1);}
+.robot-eye{transform-origin:150px 110px;animation:blink 4s infinite;transition:all .3s ease;}
+@keyframes blink{0%,90%,100%{transform:scaleY(1);}95%{transform:scaleY(.1);}}
+.robot-container:hover .robot-eye{stroke:#fff;filter:drop-shadow(0 0 10px #00e5ff);}
+.robot-head{transform-origin:150px 160px;transition:transform .5s cubic-bezier(.68,-.55,.265,1.55);}
+.robot-container:hover .robot-head{transform:rotate(-6deg);}
+.robot-belly{animation:pulseBelly 3s infinite alternate ease-in-out;}
+@keyframes pulseBelly{0%{fill:#00e5ff;filter:drop-shadow(0 0 2px #00e5ff);}100%{fill:#008ce6;filter:drop-shadow(0 0 12px #00e5ff);}}
+.robot-arm-left{transform-origin:70px 170px;animation:idleLeftArm 4s infinite alternate ease-in-out;}
+@keyframes idleLeftArm{0%{transform:rotate(0deg);}100%{transform:rotate(6deg);}}
+.floating-glass{position:absolute;z-index:3;border-radius:16px;padding:15px 20px;animation:float 6s ease-in-out infinite;display:flex;align-items:center;gap:10px;background:rgba(10,25,47,.4);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);}
+.glass-1{top:-20px;right:-40px;transform:rotate(5deg);border-top:1px solid rgba(255,215,0,.5);animation-delay:0s;z-index:3;}
+.glass-2{bottom:-20px;left:-40px;transform:rotate(-3deg);border-left:1px solid rgba(100,255,218,.5);animation-delay:2s;z-index:3;}
+.glass-text{font-size:.8rem;color:#e2e8f0;line-height:1.4;}
+.glass-author{font-size:.7rem;color:#8892b0;margin-top:5px;text-align:right;font-style:italic;}
+@keyframes float{0%{transform:translateY(0px) rotate(var(--rot,0deg));}50%{transform:translateY(-15px) rotate(var(--rot,0deg));}100%{transform:translateY(0px) rotate(var(--rot,0deg));}}
+.code-window{width:100%;max-width:450px;background:rgba(10,20,35,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:12px;box-shadow:0 25px 50px rgba(0,0,0,.5),0 0 30px rgba(100,255,218,.1);overflow:hidden;position:relative;z-index:2;transform:perspective(1000px) rotateY(-5deg) rotateX(5deg);transition:transform .5s ease;}
+.code-window:hover{transform:perspective(1000px) rotateY(0deg) rotateX(0deg);}
+.window-header{background:rgba(255,255,255,.05);padding:12px 15px;display:flex;gap:8px;border-bottom:1px solid rgba(255,255,255,.05);}
+.window-dot{width:12px;height:12px;border-radius:50%;}
+.dot-red{background-color:#ff5f56;}
+.dot-yellow{background-color:#ffbd2e;}
+.dot-green{background-color:#27c93f;}
+.code-content{padding:20px;font-family:'Courier New',Courier,monospace;font-size:.95rem;line-height:1.6;color:#a8b2d1;text-align:left;}
+.code-keyword{color:#c678dd;}
+.code-function{color:#61afef;}
+.code-string{color:#98c379;}
+.announcement-divider{border:none;height:2px;background:linear-gradient(90deg,#ffdd00,#0055ff);margin:0 auto;width:0;border-radius:5px;animation:expandDivider 1.2s cubic-bezier(.25,1,.5,1) forwards;}
+@keyframes expandDivider{0%{width:0;opacity:0;}100%{width:100%;opacity:1;}}
+.announcements-section{padding:6rem 5%;position:relative;z-index:10;background:rgba(10,25,47,.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top-left-radius:60px;border-top-right-radius:60px;border-top:1px solid rgba(255,255,255,.05);box-shadow:0 -10px 40px rgba(0,0,0,.3);margin-top:2rem;}
+.section-title{text-align:center;font-size:2.5rem;font-weight:700;margin-bottom:3rem;color:#fff;}
+.section-title span{color:#64ffda;}
+.announcements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;max-width:1200px;margin:0 auto;}
+.announcement-card{border-radius:16px;padding:2.5rem;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(16,24,43,.7) 0%,rgba(10,25,47,.4) 100%);border:1px solid rgba(255,255,255,.05);}
+.announcement-card:hover{transform:translateY(-8px)!important;border-color:rgba(100,255,218,.3);box-shadow:0 15px 35px rgba(0,0,0,.5),0 0 20px rgba(100,255,218,.1);}
+.announcement-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#64ffda,#007bff);opacity:0;transition:opacity .3s ease;}
+.announcement-card:hover::before{opacity:1;}
+.announcement-date{font-size:.8rem;color:#FFD700;font-weight:600;margin-bottom:1rem;display:inline-block;text-transform:uppercase;letter-spacing:1px;}
+.announcement-card h3{font-size:1.4rem;margin-bottom:1rem;color:#fff;font-weight:600;line-height:1.3;}
+.announcement-card p{font-size:.95rem;color:#8892b0;margin-bottom:1.5rem;line-height:1.6;}
+.read-more{color:#64ffda;font-size:.9rem;font-weight:500;display:inline-flex;align-items:center;gap:5px;transition:all .3s ease;border-bottom:1px solid transparent;}
+.read-more:hover{gap:10px;border-bottom:1px solid #64ffda;}
+.scroll-animate{opacity:0;transform:translateY(40px);transition:opacity .8s ease-out,transform .8s ease-out;}
+.scroll-animate.in-view{opacity:1;transform:translateY(0);}
+.delay-1{transition-delay:.1s;}
+.delay-2{transition-delay:.2s;}
+.delay-3{transition-delay:.3s;}
+footer{background-color:#051630;color:#a0aec0;padding:80px 5% 30px 5%;transition:background-color .4s;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:50px;margin-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:50px;max-width:1200px;margin-inline:auto;}
+.footer-col h4{color:#fff;font-size:1.2rem;margin-bottom:25px;font-weight:600;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:12px;}
+.footer-col ul li a{color:#a0aec0;text-decoration:none;transition:var(--transition);font-size:.95rem;display:inline-block;}
+.footer-col ul li a:hover{color:var(--lccm-yellow);transform:translateX(5px);}
+.footer-bottom{text-align:center;font-size:.85rem;}
+@media (max-width:960px){.hero{flex-direction:column;text-align:center;padding-top:150px;}.hero-content{align-items:center;margin-bottom:40px;}.hero h2,.hero p{text-align:center;}.floating-glass{display:none;}}
+@media (max-width:768px){.navbar{padding:.5rem 1rem;}.nav-links{display:none;}.hero h2{font-size:3rem;}.announcements-section{padding:4rem 5%;border-top-left-radius:30px;border-top-right-radius:30px;}}
+.about-cards-wrapper{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:40px;}
+.about-card{background:var(--white);padding:40px;border-radius:16px;box-shadow:var(--card-shadow);border:var(--glass-border);text-align:left;transition:var(--transition);}
+.about-card.history-card{grid-column:1 / -1;}
+[data-theme="dark"] .about-card{background:var(--light-bg);}
+.about-card:hover{transform:translateY(-5px);border-color:var(--lccm-yellow);}
+.about-card i{font-size:2.5rem;color:var(--lccm-yellow);margin-bottom:20px;display:block;}
+.about-card h3{color:var(--lccm-navy);font-size:1.5rem;margin-bottom:15px;font-weight:800;}
+.about-card p{color:var(--muted-text);font-size:.95rem;text-align:justify;}
+.filter-container{display:flex;justify-content:center;gap:15px;margin-bottom:40px;flex-wrap:wrap;position:relative;z-index:2;}
+.filter-btn{padding:8px 24px;background-color:transparent;border:2px solid var(--lccm-navy);color:var(--lccm-navy);border-radius:30px;font-weight:600;font-size:.95rem;cursor:pointer;transition:var(--transition);}
+.filter-btn:hover,.filter-btn.active{background-color:var(--lccm-navy);color:var(--white);transform:translateY(-2px);}
+@keyframes fadeScale{0%{opacity:0;transform:scale(.95);}100%{opacity:1;transform:scale(1);}}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;max-width:1200px;margin:0 auto;position:relative;z-index:2;}
+.news-card{background:var(--light-bg);border-radius:16px;overflow:hidden;box-shadow:var(--card-shadow);transition:var(--transition);display:flex;flex-direction:column;border:var(--glass-border);}
+.news-card:hover{transform:translateY(-10px);box-shadow:var(--card-shadow);}
+.news-card img{width:100%;height:220px;object-fit:cover;transition:transform .5s ease;}
+.news-card:hover img{transform:scale(1.05);}
+.news-content{padding:30px;flex-grow:1;display:flex;flex-direction:column;}
+.news-badge{background:rgba(10,37,78,.1);color:var(--lccm-navy);font-size:.75rem;font-weight:800;padding:5px 12px;border-radius:4px;display:inline-block;margin-bottom:15px;text-transform:uppercase;align-self:flex-start;}
+[data-theme="dark"] .news-badge{background:rgba(59,130,246,.15);color:var(--lccm-yellow);}
+.news-content h3{color:var(--dark-text);font-size:1.3rem;margin-bottom:15px;font-weight:800;line-height:1.4;}
+.news-content p{color:var(--muted-text);font-size:.95rem;margin-bottom:25px;flex-grow:1;}
+.read-more{color:var(--lccm-navy);text-decoration:none;font-weight:800;font-size:.9rem;display:flex;align-items:center;gap:8px;transition:var(--transition);border:none;background:transparent;cursor:pointer;padding:0;}
+.read-more:hover{color:var(--lccm-yellow);gap:12px;}
+.bg-light{background-color:var(--light-bg);}
+[data-theme="dark"] .bg-light{background-color:#0B1120;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);}
+.carousel-container{position:relative;max-width:1100px;margin:0 auto;display:flex;align-items:center;z-index:2;}
+.carousel-track-wrapper{overflow:hidden;width:100%;padding:40px 10px;}
+.carousel-track{display:flex;gap:30px;transition:transform .5s cubic-bezier(.25,.8,.25,1);}
+.team-card{text-align:center;background:var(--white);padding:40px 20px;border-radius:16px;box-shadow:var(--card-shadow);border:var(--glass-border);flex:0 0 calc(33.333% - 20px);min-width:280px;transition:all .4s cubic-bezier(.175,.885,.32,1.275);}
+[data-theme="dark"] .team-card{background:var(--light-bg);}
+.team-card:hover{transform:translateY(-20px) scale(1.03);border-color:var(--lccm-yellow);z-index:10;}
+.team-card img{width:140px;height:140px;border-radius:50%;object-fit:cover;margin-bottom:20px;border:4px solid var(--lccm-yellow);padding:4px;transition:transform .4s ease;background:var(--white);}
+.team-card:hover img{transform:scale(1.1);}
+.team-card h3{color:var(--lccm-navy);font-size:1.3rem;font-weight:800;}
+.team-card p{color:var(--muted-text);font-size:.9rem;font-weight:600;margin-top:5px;margin-bottom:20px;}
+.social-links a{color:var(--muted-text);font-size:1.2rem;margin:0 10px;display:inline-block;transition:var(--transition);}
+.social-links a:hover{color:var(--lccm-navy);transform:translateY(-5px);}
+.carousel-btn{background:var(--light-bg);border:2px solid var(--lccm-navy);color:var(--lccm-navy);border-radius:50%;width:50px;height:50px;cursor:pointer;position:absolute;top:50%;transform:translateY(-50%);z-index:20;transition:var(--transition);display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 10px rgba(0,0,0,.1);}
+.carousel-btn:hover{background:var(--lccm-navy);color:var(--white);transform:translateY(-50%) scale(1.1);}
+.carousel-btn.prev{left:-25px;}
+.carousel-btn.next{right:-25px;}
+@media(max-width:768px){.hero h2{font-size:3rem;}.carousel-btn{display:none;}.carousel-track-wrapper{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:40px;}.team-card{scroll-snap-align:center;}nav ul{display:none;}}
+.tabs-container{margin-bottom:2.5rem;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.tab-btn{padding:10px 25px;border-radius:30px;border:1px solid rgba(100,255,218,.2);background:rgba(255,255,255,.05);color:#8892b0;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .3s ease;font-family:'Inter',sans-serif;}
+.tab-btn:hover{background:rgba(100,255,218,.1);color:#64ffda;border-color:rgba(100,255,218,.5);transform:translateY(-2px);}
+.tab-btn.active{background:rgba(100,255,218,.1);color:#64ffda;border-color:#64ffda;box-shadow:0 0 12px rgba(100,255,218,.12);}
+.tab-content{display:none;animation:fadeIn .5s ease;}
+.tab-content.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.robot-container{transform:scale(1.4);transform-origin:center;margin-left:2rem;}
+@media (max-width:768px){.robot-container{transform:scale(1.1);margin-left:0;}}
+    
+    </style>
+    </head>
+<body>
+
+    <div class="bg-container">
+    <svg class="circuit-lines" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <pattern id="circuit-board" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
+                <path d="M 20 20 L 60 20 L 80 40 L 80 120" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+                <circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.15)"/>
+                <circle cx="80" cy="120" r="3" fill="rgba(100,255,218,0.3)"/>
+                <path d="M 150 0 L 150 50 L 180 80 L 250 80" fill="none" stroke="rgba(100,255,218,0.05)" stroke-width="1.5"/>
+                <circle cx="250" cy="80" r="2.5" fill="rgba(100,255,218,0.2)"/>
+                <path d="M 0 200 L 40 200 L 70 170 L 130 170 L 150 150 L 150 110" fill="none" stroke="rgba(0,102,255,0.1)" stroke-width="1"/>
+                <circle cx="150" cy="110" r="2" fill="rgba(0,102,255,0.3)"/>
+                <path d="M 280 200 L 250 230 L 250 280 L 220 310" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="2"/>
+                <circle cx="280" cy="200" r="4" fill="rgba(255,255,255,0.1)"/>
+                <circle cx="120" cy="40" r="1.5" fill="rgba(255,215,0,0.2)"/>
+                <circle cx="210" cy="180" r="1.5" fill="rgba(255,255,255,0.2)"/>
+                <circle cx="60" cy="260" r="1.5" fill="rgba(100,255,218,0.2)"/>
+            </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#circuit-board)"/>
+        <path d="M -50 400 L 150 400 L 300 550 L 300 100%" fill="none" stroke="rgba(100,255,218,0.08)" stroke-width="2"/>
+        <circle cx="150" cy="400" r="5" fill="rgba(100,255,218,0.2)"/>
+        <path d="M 100% 250 L calc(100% - 200px) 250 L calc(100% - 350px) 100 L calc(100% - 350px) -50" fill="none" stroke="rgba(0,102,255,0.15)" stroke-width="3"/>
+        <circle cx="calc(100% - 200px)" cy="250" r="6" fill="rgba(0,102,255,0.25)"/>
+    </svg>
+</div>
+
+<div class="navbar-wrapper">
+    <a href="index.html" class="brand">
+        <img src="photos/lits.jpg" alt="LITS Logo">
+        <div class="logo">LITS Tech Hub</div>
+    </a>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="student_highlights.html">Student Highlights</a></li>
+            <li><a href="documents.html">Resources</a></li>
+        </ul>
+    </nav>
+    <a href="contact_us.html" class="btn-primary nav-btn">
+        <i class="fa-solid fa-link" style="margin-right:8px;"></i>Connect with Us
+    </a>
+</div>
+
+    <header class="hero">
+    <div class="hero-content">
+        <div class="glass-effect badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            Welcome to LITS Tech Hub
+        </div>
+        <h2>Innovate.<br><span class="blue-text">Code.</span> Lead.</h2>
+        <p>Welcome to the League of Information Technology Students (LITS). We are the premier community for IT students at La Consolacion College Manila, dedicated to fostering technical excellence and professional growth.</p>
+        <div class="hero-actions">
+            <a href="events.html" class="btn-primary">See All Events</a>
+            <a href="contact_us.html" class="btn-primary btn-outline">Connect with Us</a>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="robot-container">
+            <div class="speech-bubble">Welcome to LITS Tech Hub!</div>
+            <svg class="robot-svg" viewBox="0 0 300 350" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="150" cy="330" rx="70" ry="12" fill="rgba(100,255,218,0.2)" class="robot-shadow"/>
+                <g class="robot-body-group">
+                    <path d="M 70 170 C 30 190 20 230 40 260 C 50 270 70 260 80 230 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="5" class="robot-arm-left"/>
+                    <path d="M 230 170 C 270 150 290 120 280 90 C 270 70 240 80 220 120 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="5" class="robot-arm-right"/>
+                    <path d="M 100 160 C 100 160 80 270 150 300 C 220 270 200 160 200 160 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="5"/>
+                    <path class="robot-belly" d="M 115 210 C 115 210 115 250 150 265 C 185 250 185 210 185 210 Z" fill="#00e5ff" stroke="#008ce6" stroke-width="3"/>
+                    <g class="robot-head">
+                        <rect x="60" y="50" width="180" height="130" rx="65" fill="#ffffff" stroke="#cbd5e1" stroke-width="5"/>
+                        <rect x="40" y="90" width="30" height="50" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="4"/>
+                        <rect x="230" y="90" width="30" height="50" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="4"/>
+                        <path d="M 55 90 L 65 45 L 75 90 Z" fill="#008ce6"/>
+                        <path d="M 245 90 L 235 45 L 225 90 Z" fill="#008ce6"/>
+                        <rect x="75" y="65" width="150" height="90" rx="45" fill="#0f172a" stroke="#1e3a8a" stroke-width="4"/>
+                        <rect x="85" y="75" width="130" height="70" rx="35" fill="#1e3a8a"/>
+                        <path d="M 105 110 Q 120 95 135 110" fill="none" stroke="#00e5ff" stroke-width="8" stroke-linecap="round" class="robot-eye"/>
+                        <path d="M 165 110 Q 180 95 195 110" fill="none" stroke="#00e5ff" stroke-width="8" stroke-linecap="round" class="robot-eye"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+</header>
+
+    <section id="announcements" class="announcements-section">
+    <h2 class="section-title scroll-animate">Announcement</h2>
+    <div class="announcements-grid">
+        <div class="glass-effect announcement-card scroll-animate delay-1">
+            <span class="announcement-date">May 2026</span>
+            <h3>Year End Party</h3>
+            <p>Save the date! Our annual Year End Party will be held on May. Join us for an afternoon of fun, food, and festivities as we celebrate our achievements this year.</p>
+        </div>
+        <div class="glass-effect announcement-card scroll-animate delay-2">
+            <span class="announcement-date">May 2026</span>
+            <h3>Election of New Officers</h3>
+            <p>We are excited to announce the upcoming election for new officers of LITS. If you are passionate about technology and leadership, this is your chance to make a difference in our community. Stay tuned for more details on how to run for a position!</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col reveal">
+            <div style="display:flex;align-items:center;gap:15px;margin-bottom:25px;">
+                <img src="photos/lits.jpg" alt="LITS Logo" style="width:45px;background:white;border-radius:50%;border:2px solid var(--lccm-yellow);">
+                <h3 style="color:white;font-size:1.5rem;font-weight:800;">LITS Tech Hub</h3>
+            </div>
+            <p style="line-height:1.8;">The official student organization of the Information Technology Department at La Consolacion College Manila. Innovating the future, today.</p>
+        </div>
+        <div class="footer-col reveal delay-1">
+            <h4>Quick Navigation</h4>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="student_highlights.html">Student Highlights</a></li>
+                <li><a href="documents.html">Resources</a></li>
+            </ul>
+        </div>
+        <div class="footer-col reveal delay-2">
+            <h4>Follow Us</h4>
+            <ul>
+                <li><a href="https://www.facebook.com/litslccm" target="_blank"><i class="fab fa-facebook" style="width:25px;"></i> Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 League of Information Technology (LITS). All Rights Reserved.</p>
+        <p style="font-size:.8rem;margin-top:10px;opacity:.6;">Disclaimer: This website was created as a project requirement for the WS101 course and serves for educational purposes.</p>
+    </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+    animatedElements.forEach(el => { observer.observe(el); });
+});
+</script>
+</body>
+</html>
